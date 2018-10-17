@@ -1,0 +1,33 @@
+<div class='container' class="st_login">
+  <form #loginForm="ngForm" (ngSubmit)="onLogIn()">
+    <div>
+      <div class="st_title">
+        <span>Students Login</span>
+      </div>
+      <div>
+        <div>
+          <input class="st_ltext ic-user" [(ngModel)]="email" name="email" required="required" placeholder="Email ID" />
+        </div>
+        <div>
+          <input class="st_ltext ic-password" [(ngModel)]="password" name="password" required="required" pattern=".{6,30}"
+            type="password" placeholder="Password" />
+        </div>
+
+        <!-- <re-captcha (resolved)="resolved($event)" siteKey="6LduM1cUAAAAAIJFFRBMCBRClgLzoCf1ay-Evy4h"></re-captcha>
+        <br> -->
+
+        <div class="error_msg" *ngIf="warningMessage">
+          <b>Warning ! </b> {{warningMessage}}
+        </div>
+      </div>
+
+      <!-- <div class="g-recaptcha padding-top10" data-sitekey="6LduM1cUAAAAAIJFFRBMCBRClgLzoCf1ay-Evy4h" style="transform:scale(0.77);-webkit-transform:scale(0.77);transform-origin:0 0;-webkit-transform-origin:0 0;"></div> -->
+
+      <div>
+        <input type="submit" color="primary" class="st_submit" value="Login" />
+        <!-- <a [routerLink]="['/forgot-password']" routerLinkActive="link-active" class="login wt70p forgotpassword txt_cen">Forgot
+          Password</a> -->
+      </div>
+    </div>
+  </form>
+</div>

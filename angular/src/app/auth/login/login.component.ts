@@ -26,7 +26,16 @@ export class LoginComponent implements OnInit {
   onLogIn() {
     this.authService.login(this.email, this.password)
       .subscribe(res => {
-        console.log(res);
+        //check for errors
+        this.warningMessage = '';
+        if (Array.isArray(res)) {
+          this.warningMessage += res[0];
+        }
+        // if not errors - navigate to home
+        if (!this.warningMessage) {
+          location.reload();
+          this.router.navigate(['home']);
+        }
       }, error => {
         this.warningMessage = "Invalid Credentials!";
         console.error(error);
